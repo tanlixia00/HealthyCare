@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main">
+
+    <fragment
+        android:id="@+id/logAMealFragment"
+        android:name="com.example.projectuas_timxd_healthycare.view.LogAMealFragment"
+        android:label="fragment_log_a_meal"
+        tools:layout="@layout/fragment_log_a_meal" >
+        <action
+            android:id="@+id/action_logAMealFragment_to_foodLogFragment"
+            app:destination="@id/foodLogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.example.projectuas_timxd_healthycare.view.ReportFragment"
+        android:label="fragment_report"
+        tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.projectuas_timxd_healthycare.view.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/foodLogFragment"
+        android:name="com.example.projectuas_timxd_healthycare.view.FoodLogFragment"
+        android:label="fragment_food_log"
+        tools:layout="@layout/fragment_food_log" >
+        <action
+            android:id="@+id/action_foodLogFragment_to_logAMealFragment"
+            app:destination="@id/logAMealFragment" />
+    </fragment>
+</navigation>
