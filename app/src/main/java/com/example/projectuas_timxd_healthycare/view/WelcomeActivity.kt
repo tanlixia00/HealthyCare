@@ -20,6 +20,7 @@ import com.example.projectuas_timxd_healthycare.model.User
 import com.example.projectuas_timxd_healthycare.viewmodel.DetailUserViewModel
 import kotlinx.android.synthetic.main.activity_welcome.*
 import kotlin.math.log
+import kotlin.math.roundToInt
 
 class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickListener,
     StartClickListener, AdapterView.OnItemSelectedListener {
@@ -40,13 +41,14 @@ class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickLis
         binding.radioListener = this
         binding.spinnerListener = this
         binding.startListener = this
-        binding.user = User("", "", "", "", "", "", 0)
+        binding.user = User("", "", "", "", "", "", 0, "0")
 
         val pref = this.getSharedPreferences("PREFS", 0)
         val boolPref = pref.getBoolean("first", true)
-        if (boolPref == false){
+        if (boolPref == false) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -66,6 +68,23 @@ class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickLis
         val pref = this.getSharedPreferences("PREFS", 0)
         val editor = pref.edit()
         editor.putBoolean("first", false).apply()
+        if (obj.gender == "Male") {
+            obj.bmr =
+                ((13.397 * obj.weight.toInt()) + (4.799 * obj.height.toInt()) - (5.677 * obj.age.toInt()) + 88.362).roundToInt()
+        } else {
+            obj.bmr =
+                ((9.247 * obj.weight.toInt()) + (3.098 * obj.height.toInt()) - (4.330 * obj.age.toInt()) + 447.593).roundToInt()
+        }
+        if (obj.goal == "maintain") {
+            obj.maxCal = obj.bmr.toString()
+        } else if (obj.goal == "gain") {
+            obj.maxCal = (obj.bmr + (obj.bmr * 0.15).roundToInt()).toString()
+        } else {
+            obj.maxCal = (obj.bmr - (obj.bmr * 0.15).roundToInt()).toString()
+        }
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

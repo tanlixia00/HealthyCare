@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-data class Gender(val id:Int, val nama:String){
+data class Gender(val id: Int, val nama: String) {
     override fun toString(): String {
         return nama
     }
@@ -12,21 +12,23 @@ data class Gender(val id:Int, val nama:String){
 
 @Entity
 data class User(
-    @ColumnInfo(name="name")
-    var name:String,
-    @ColumnInfo(name="age")
-    var age:String,
-    @ColumnInfo(name="gender")
-    var gender:String,
-    @ColumnInfo(name="weight")
-    var weight:String,
-    @ColumnInfo(name="height")
-    var height:String,
-    @ColumnInfo(name="goal")
-    var goal:String,
-    @ColumnInfo(name="bmr")
-    val bmr:Int
-){
+    @ColumnInfo(name = "name")
+    var name: String,
+    @ColumnInfo(name = "age")
+    var age: String,
+    @ColumnInfo(name = "gender")
+    var gender: String,
+    @ColumnInfo(name = "weight")
+    var weight: String,
+    @ColumnInfo(name = "height")
+    var height: String,
+    @ColumnInfo(name = "goal")
+    var goal: String,
+    @ColumnInfo(name = "bmr")
+    var bmr: Int,
+    @ColumnInfo(name = "maxCal")
+    var maxCal: String
+) {
     @PrimaryKey(autoGenerate = true)
-    var uuid:Int = 0
+    var uuid: Int = 0
 }

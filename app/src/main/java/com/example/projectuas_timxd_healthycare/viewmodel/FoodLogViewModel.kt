@@ -1,8 +1,6 @@
 package com.example.projectuas_timxd_healthycare.viewmodel
 
 import android.app.Application
-import android.view.View
-import android.widget.AdapterView
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
@@ -15,17 +13,16 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class DetailUserViewModel(application: Application) : AndroidViewModel(application), CoroutineScope {
+class FoodLogViewModel(application: Application):AndroidViewModel(application), CoroutineScope {
+    val userLD = MutableLiveData<User>()
     private var job = Job()
 
-    fun addUser(list: List<User>) {
+    fun LoadUser(){
         launch {
             val db = buildDb(getApplication())
-            db.userDao().insertAll(*list.toTypedArray())
+            userLD.value =db.userDao().selectAllUser()
         }
     }
-
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
-
 }
