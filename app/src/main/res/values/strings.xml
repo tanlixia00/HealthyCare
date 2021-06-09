@@ -4,4 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="daily_energy_intake">Daily Energy Intake:</string>
     <string name="_0_cal">0 cal</string>
+    <string name="add_an_meal">Add an meal</string>
+    <string name="what_you_eat">What you eat?</string>
+    <string name="callorie_approx">Callorie Approx</string>
+    <string name="log_this_meal">Log this meal</string>
 </resources>

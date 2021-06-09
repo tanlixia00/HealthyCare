@@ -41,7 +41,7 @@ class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickLis
         binding.radioListener = this
         binding.spinnerListener = this
         binding.startListener = this
-        binding.user = User("", "", "", "", "", "", 0, "0")
+        binding.user = User("", "", "", "", "", "", 0, 0, 0, "")
 
         val pref = this.getSharedPreferences("PREFS", 0)
         val boolPref = pref.getBoolean("first", true)
@@ -62,6 +62,7 @@ class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickLis
     }
 
     override fun onStartClick(v: View, obj: User) {
+        obj.name = obj.name.capitalize()
         val list = listOf(obj)
         viewModel.addUser(list)
         Toast.makeText(v.context, "Data added", Toast.LENGTH_LONG).show()
@@ -76,11 +77,11 @@ class WelcomeActivity : AppCompatActivity(), RadioClickListener, SpinnerClickLis
                 ((9.247 * obj.weight.toInt()) + (3.098 * obj.height.toInt()) - (4.330 * obj.age.toInt()) + 447.593).roundToInt()
         }
         if (obj.goal == "maintain") {
-            obj.maxCal = obj.bmr.toString()
+            obj.maxCal = obj.bmr
         } else if (obj.goal == "gain") {
-            obj.maxCal = (obj.bmr + (obj.bmr * 0.15).roundToInt()).toString()
+            obj.maxCal = (obj.bmr + (obj.bmr * 0.15).roundToInt())
         } else {
-            obj.maxCal = (obj.bmr - (obj.bmr * 0.15).roundToInt()).toString()
+            obj.maxCal = (obj.bmr - (obj.bmr * 0.15).roundToInt())
         }
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

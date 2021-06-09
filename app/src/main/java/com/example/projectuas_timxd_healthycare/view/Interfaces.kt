@@ -12,3 +12,12 @@ interface SpinnerClickListener{
 interface StartClickListener{
     fun onStartClick(v:View, obj:User)
 }
+interface ProgressBarListener{
+    fun onProgressBar(v:View)
+}
+interface FABClickListener{
+    fun onFABClick(v: View)
+}
+interface LogClickListener{
+    fun onLogClick(v:View)
+}

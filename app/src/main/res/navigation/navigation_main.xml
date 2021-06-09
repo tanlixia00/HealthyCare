@@ -8,21 +8,24 @@
     <fragment
         android:id="@+id/logAMealFragment"
         android:name="com.example.projectuas_timxd_healthycare.view.LogAMealFragment"
-        android:label="fragment_log_a_meal"
-        tools:layout="@layout/fragment_log_a_meal" >
+        android:label="Log a Meal"
+        tools:layout="@layout/fragment_log_a_meal">
         <action
             android:id="@+id/action_logAMealFragment_to_foodLogFragment"
             app:destination="@id/foodLogFragment" />
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
         android:name="com.example.projectuas_timxd_healthycare.view.ReportFragment"
-        android:label="fragment_report"
+        android:label="Report"
         tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/profilFragment"
         android:name="com.example.projectuas_timxd_healthycare.view.ProfilFragment"
-        android:label="fragment_profil"
+        android:label="Profile"
         tools:layout="@layout/fragment_profil" />
     <fragment
         android:id="@+id/foodLogFragment"
@@ -30,7 +33,7 @@
         android:label="Log Food"
         tools:layout="@layout/fragment_food_log">
         <action
-            android:id="@+id/action_foodLogFragment_to_logAMealFragment"
+            android:id="@+id/actionLogAMeal"
             app:destination="@id/logAMealFragment" />
     </fragment>
 </navigation>
