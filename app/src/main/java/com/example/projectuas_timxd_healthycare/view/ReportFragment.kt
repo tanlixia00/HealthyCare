@@ -48,9 +48,16 @@ class ReportFragment : Fragment() {
 
     fun observeViewModel(){
         viewModel.reportLD.observe(viewLifecycleOwner, Observer {
-
-            reportAdapter.refreshList(it)
-            dataBinding.report = it[it.lastIndex]
+            if (it.isNotEmpty()) {
+                reportAdapter.refreshList(it)
+                dataBinding.report = it[it.lastIndex]
+            }
+            else{
+                val date = Calendar.getInstance().timeInMillis / 1000L
+                val report = Report(date, "LOW", 0,0)
+                reportAdapter.refreshList(arrayListOf())
+                dataBinding.report = report
+            }
         })
     }
 }

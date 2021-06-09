@@ -29,33 +29,38 @@ class ReportListAdapter(val reportList: ArrayList<Report>) :
         } else {
             TODO("VERSION.SDK_INT < O")
         }
-
-        val instant = Instant.ofEpochMilli(list[list.lastIndex].date * 1000L)
-        val dates = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
-        var dayInMonth = YearMonth.of(dates.year, dates.month).lengthOfMonth()
-        var c = Calendar.getInstance()
-        for (x in 1..dayInMonth){
-            var bool = false
-            var listIdx = 0
-            c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), x, 0,0,0)
-            var inMillis = c.timeInMillis / 1000L
-            for (report in list){
-                if (report.date == inMillis){
-                    bool = true
-                }else{
-                    listIdx++
+        var idx = 0
+        var instant = Instant.ofEpochMilli(0)
+        var dates = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+        if(list.isNotEmpty()){
+            idx = list.lastIndex
+            instant = Instant.ofEpochMilli(list[idx].date * 1000L)
+            dates = LocalDateTime.ofInstant(instant, ZoneId.systemDefault())
+            var dayInMonth = YearMonth.of(dates.year, dates.month).lengthOfMonth()
+            var c = Calendar.getInstance()
+            for (x in 1..dayInMonth){
+                var bool = false
+                var listIdx = 0
+                c.set(c.get(Calendar.YEAR), c.get(Calendar.MONTH), x, 0,0,0)
+                var inMillis = c.timeInMillis / 1000L
+                for (report in list){
+                    if (report.date == inMillis){
+                        bool = true
+                    }else{
+                        listIdx++
+                    }
+                }
+                if (bool == true){
+                    tempList.add(list[listIdx])
+                }
+                else{
+                    val report = Report(inMillis,"LOW",0,0)
+                    tempList.add(report)
                 }
             }
-            if (bool == true){
-                tempList.add(list[listIdx])
-            }
-            else{
-                val report = Report(inMillis,"LOW",0,0)
-                tempList.add(report)
-            }
+            reportList.addAll(tempList)
+            notifyDataSetChanged()
         }
-        reportList.addAll(tempList)
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReportViewHolder {
