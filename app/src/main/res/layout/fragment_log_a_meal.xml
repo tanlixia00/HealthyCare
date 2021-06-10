@@ -73,8 +73,9 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtFoodName"
                         android:layout_width="match_parent"
-                        android:text="@={food.name}"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:text="@={food.name}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout

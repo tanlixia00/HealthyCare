@@ -21,3 +21,6 @@ interface FABClickListener{
 interface LogClickListener{
     fun onLogClick(v:View)
 }
+interface UpdateClickListener{
+    fun onUpdateClick(v:View, obj:User)
+}

@@ -10,6 +10,9 @@ interface UserDao {
     @Query("SELECT * from user")
     suspend fun selectAllUser(): User
 
+    @Query("UPDATE user SET name=:name, gender=:gender, weight=:weight, height=:height, age=:age where uuid=:uuid")
+    suspend fun updateProfile(name:String, gender:String, weight:String, height:String, age:String, uuid:Int)
+
     @Query("UPDATE user SET status=:status where uuid=:uuid")
     suspend fun updateStatus(status: String, uuid: Int)
 
