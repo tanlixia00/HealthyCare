@@ -81,6 +81,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:text="@{user.gender + `, ` + user.age + ` years old`}"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,6 +91,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
                         android:text="@{user.name}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtAge" />
@@ -99,8 +103,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="24dp"
                         android:text="@string/daily_energy_intake"
+                        android:textColor="@color/white"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
@@ -109,7 +114,7 @@
                         android:layout_width="0dp"
                         android:layout_height="150dp"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginEnd="32dp"
                         app:cardCornerRadius="6dp"
                         app:cardElevation="2dp"
@@ -137,7 +142,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
-                                android:text="@{user.sumCal + ` Cal`}"
+                                android:text="18 cal"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/txtDate" />
 
@@ -157,6 +164,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="8dp"
                                 android:text="@{user.status}"
+                                android:textSize="16sp"
                                 android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -181,6 +189,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:text="@string/_0_cal"
+                                android:textStyle="bold"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -190,6 +199,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="16dp"
                                 android:text="@{user.maxCal + ` Cal`}"
+                                android:textStyle="bold"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/progressBar" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
