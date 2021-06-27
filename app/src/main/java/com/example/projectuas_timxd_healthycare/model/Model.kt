@@ -73,3 +73,19 @@ data class UserWithFoods(
     )
     val foods: List<Food>
 )
+
+data class Nutrition(
+    var name: String,
+    var sugar: Double,
+    var fiber: Double,
+    var serving: Double,
+    var sodium: Double,
+    var pottasium: Double,
+    var saturated_fat: Double,
+    var total_fat: Double,
+    var calories: Double,
+    var cholesterol: Double,
+    var protein: Double,
+    var carbo_total: Double
+
+)

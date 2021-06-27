@@ -36,4 +36,9 @@
             android:id="@+id/actionLogAMeal"
             app:destination="@id/logAMealFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/foodNutritionFragment"
+        android:name="com.example.projectuas_timxd_healthycare.view.FoodNutritionFragment"
+        android:label="Food Nutrition Facts"
+        tools:layout="@layout/fragment_food_nutrition" />
 </navigation>
